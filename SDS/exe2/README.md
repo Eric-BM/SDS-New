@@ -43,17 +43,17 @@
        ``` yaml
            image: eclipse-mosquitto:latest
        ``` 
-    3. Create [correct configuration](src/mosquitto.conf)
-        1. Broker should allow for anonymous access. 
+2. Create [correct configuration](src/mosquitto.conf)
+    1. Broker should allow for anonymous access. 
         ``` conf
         allow_anonymous true
         ```
-        2. Use ports 1883 and 8883.  
+    2. Use ports 1883 and 8883.  
         ``` conf
             listener 1883
             listener 8883
         ```
-        3. Use ca.crt, server.crt and server.key for enabling encrypted access.
+    3. Use ca.crt, server.crt and server.key for enabling encrypted access.
         ``` conf
             certfile /mosquitto/config/certs/server.crt
             cafile /mosquitto/config/certs/ca.crt
