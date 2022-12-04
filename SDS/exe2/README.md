@@ -61,7 +61,7 @@
         ```
 3.  Mount configuration files and certificates to mosquitto container
      ``` yaml
-            volumes:
-                - "./mosquitto.conf:/mosquitto/config/mosquitto.conf"
-                - "./certs:/mosquitto/config/certs"
+        volumes:
+            - "./mosquitto.conf:/mosquitto/config/mosquitto.conf"
+            - "./certs:/mosquitto/config/certs"
     ```
