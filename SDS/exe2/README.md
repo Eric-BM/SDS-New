@@ -41,7 +41,7 @@
        ```
     2. Use the official image
        ``` yaml
-           image: eclipse-mosquitto:latest
+        image: eclipse-mosquitto:latest
        ``` 
 2. Create [correct configuration](src/mosquitto.conf)
     1. Broker should allow for anonymous access. 
@@ -50,18 +50,49 @@
         ```
     2. Use ports 1883 and 8883.  
         ``` conf
-            listener 1883
-            listener 8883
+        listener 1883
+        listener 8883
         ```
     3. Use ca.crt, server.crt and server.key for enabling encrypted access.
         ``` conf
-            certfile /mosquitto/config/certs/server.crt
-            cafile /mosquitto/config/certs/ca.crt
-            keyfile /mosquitto/config/certs/server.key
+        certfile /mosquitto/config/certs/server.crt
+        cafile /mosquitto/config/certs/ca.crt
+        keyfile /mosquitto/config/certs/server.key
         ```
 3.  Mount configuration files and certificates to mosquitto container
      ``` yaml
-        volumes:
-            - "./mosquitto.conf:/mosquitto/config/mosquitto.conf"
-            - "./certs:/mosquitto/config/certs"
+    volumes:
+        - "./mosquitto.conf:/mosquitto/config/mosquitto.conf"
+        - "./certs:/mosquitto/config/certs"
     ```
+4. Connect toyota-data-feeder to use mosquitto broker. 
+    1. Create a custom network with the name of your studentid (studentXXX-net) in the docker compose file.  
+    ```yaml
+    networks:
+        studnet297-net: 
+            name: studnet297-net
+    ```
+    2. For feeder url and port use the locally deployed mosquitto sub. Don't use mqtt-test.rahtiapp.fi:443.
+    ```yaml
+    services:
+        feeder:
+            networks:
+                - studnet297-net 
+        mosquitto:
+            networks:
+                - studnet297-net 
+    ```
+5. Run docker compose to start up the services
+```sh
+docker compose up
+```
+![compose up](pic/compose_up.png)
+6. Confirm you are receiving messages to your localhost with mosquitto_sub
+
+
+7. Showcase that your containers work in a custom network.  
+    1. docker network inspect
+    ```sh
+    docker network inspect studnet297-net 
+    ```
+        ![network](pic/ntw.png)
