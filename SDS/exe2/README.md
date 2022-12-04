@@ -59,3 +59,9 @@
             cafile /mosquitto/config/certs/ca.crt
             keyfile /mosquitto/config/certs/server.key
         ```
+3.  Mount configuration files and certificates to mosquitto container
+     ``` yaml
+            volumes:
+                - "./mosquitto.conf:/mosquitto/config/mosquitto.conf"
+                - "./certs:/mosquitto/config/certs"
+    ```
