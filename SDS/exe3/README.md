@@ -1,4 +1,4 @@
-# Exercise 3 - Docker advanced
+# Exercise 3 - Kubernetes basics
 ## Assigments
 1. Create a yaml file that has the following Object Definitions:
 
@@ -8,24 +8,17 @@
     4. ConfigMap or Secret for server.crt, ca.cart and server.key (MQTT certificates)
     5. Route 
 
-tips: 
-Use the official eclipse-mosquitto:latest image.
-Use only one replica.
-Configure mosquitto broker with correct configuration - encrypted unauthenticated access. Broker needs to allow anonymous access.
-
-Use ports 1883 and 8883! Use both!
-
-Add ConfigMaps (mosquitto configuration and certificates) to mosquitto Deployment as volumeMounts and volumes.
-
-Use volumeMounts.mounthPath: /mosquitto/config/mosquitto.conf for mosquitto broker.
-
-Use ca.crt, server.crt and server.key for enabling encrypted access. For now, it's probably better to use configMap rather than Secret for the certs.
-
-Mount the certs into /mosquitto/config/certs folder and alter mosquitto.conf filepath to match.
-
-In Route object specification name host with mqtt. + your studentid. +rahtiapp.fi  (i.e. mqtt.studentXXX.rahtiapp.fi) and use tls.termination: passthrough
-
-USE ONLY CHARACTERS a-z AND minus sign ( - ) IN SERVICE NAMES!
+tips:  
+Use the official eclipse-mosquitto:latest image.  
+Use only one replica.  
+Configure mosquitto broker with correct configuration - encrypted unauthenticated access. Broker needs to allow anonymous access.  
+Use ports 1883 and 8883! Use both!  
+Add ConfigMaps (mosquitto configuration and certificates) to mosquitto Deployment as volumeMounts and volumes.  
+Use volumeMounts.mounthPath: /mosquitto/config/mosquitto.conf for mosquitto broker.  
+Use ca.crt, server.crt and server.key for enabling encrypted access. For now, it's probably better to use configMap rather than Secret for the certs.  
+Mount the certs into /mosquitto/config/certs folder and alter mosquitto.conf filepath to match.  
+In Route object specification name host with mqtt. + your studentid. +rahtiapp.fi  (i.e. mqtt.studentXXX.rahtiapp.fi) and use tls.termination: passthrough 
+USE ONLY CHARACTERS a-z AND minus sign ( - ) IN SERVICE NAMES!  
 
 
 1.5.  If you have not yet done a Rahti cloud project, navigate to https://rahti.csc.fi:8443. Log in and create a project. Important! Add course assistants with admin access to the project. Log into rahti command line interface. In GUI click your name in the upper right corner. Select copy login command. Paste into terminal.
