@@ -95,4 +95,4 @@ docker compose up
     ```sh
     docker network inspect studnet297-net 
     ```
-        ![network](pic/ntw.png)
+    ![network](pic/ntw.png)
