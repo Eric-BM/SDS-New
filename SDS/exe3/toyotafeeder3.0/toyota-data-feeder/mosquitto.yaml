@@ -137,12 +137,12 @@ spec:
     - protocol: TCP
       port: 1883
       targetPort: 1883
-      name: mosquitto      
+      name: mosquitto
 ---
-apiVersion: v1
+apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: mosquitto
+  name: mosquitto 
 spec:
   host: mqtt.student297.rahtiapp.fi
   to: 
