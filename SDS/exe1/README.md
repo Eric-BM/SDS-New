@@ -44,16 +44,9 @@
       COPY ca.crt ca.crt
       
       COPY toyota_data.csv toyota_data.csv
-      # add feeder.py, requirements.txt, ca.crt, toyota_data.csv in out working directory.
-      
-      ENV  MQTT_URL=mqtt-test.rahtiapp.fi
-      
-      ENV  MQTT_PORT=443
-      
-      ENV CLIENT_ID=student297
-      # set env
-      
-      RUN pip3 install -r requirements.txt
+      # add feeder.py, requirements.txt, ca.crt, toyota_data.csv in out working directory. 
+   
+      RUN pip3 install -r requirements.txt 
       # tell Docker to use pip3 to install requirements what python file needs.
       
       CMD ["python3", "./feeder.py"]
