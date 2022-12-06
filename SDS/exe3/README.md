@@ -59,3 +59,15 @@ Reuse mosquitto.conf from exercise 2. You can use the variables in the mosquitto
    CSC Rahti account: student297
 
 #### STEPS:
+1. Create a [yaml](src/mosquitto.yaml) file 
+2. Make sure Log in and create a project on Rahti.
+3. Screenshot of "oc create"
+![oc create](pic/oc_create.png)
+4. Screenshot of "oc get all"
+![oc_get_all](pic/oc_get_all.png)
+5. Screenshot of "oc get pod" 
+![oc_get_pod](pic/oc_get_pod.png)
+6. Screenshot of "oc exec" 
+![oc_exec](pic/oc_exec.png)
+7. Screenshot of "ls mosquitto/config/certs" and "cat mosquitto/config/mosquitto.conf"
+![oc_ls_cat](pic/oc_ls_cat.png)

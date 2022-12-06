@@ -4,7 +4,7 @@ services:
   feeder:
     image: docker-registry.rahti.csc.fi/xinyuan-ma/toyotafeeder:2.0
     environment:
-      - MQTT_URL = mosquitto
+      - MQTT_URL = mqtt.student297.rahtiapp.fi
       - MQTT_PORT = 8883
       - CLIENT_ID = student297
     networks:
