@@ -1,13 +1,5 @@
 # Exercise 4 - Kubernetes Advanced
 ## Assigments
-In assignment 3 you created a yaml file that had the following Object Definitions:
-Object definition for mosquito broker (use deployment or deploymentConfig, not pod!)
-Service for mosquitto broker
-ConfigMap for mosquitto.conf
-ConfigMap for server.crt, ca.cart and server.key (MQTT certificates)
-Route for mosquitto broker
-Use those to deploy mosquitto broker with “oc create”
-
 1. Create two new yaml files with following definitions:
 First yaml file:
 Object definition for node-RED
