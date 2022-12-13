@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-RED-deployment
+  labels:
+    app: node-RED
+spec:
+  replicas: 1
+  type: LoadBalancer
+  selector:
+    matchLabels:
+      app: node-RED
+  template:
+    metadata:
+      labels:
+        app: node-RED
+    spec:
+      containers:
+        - name: node-RED
+          image: nodered/node-red:latest
+          ports:
+            - containerPort: 1880
+          volumeMounts: 
+            - name: node-RED-directory
+              mountPath: /node-RED/directory
+      volumes:
+        - name: node-RED-directory
+          PersistentVolumeClaim:
+            name: node-RED-pvc
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-RED-service
+  labels:
+    app: node-RED-service
+    kubernetes.io/name: "node-RED-service"
+spec:
+  selector:
+    app: node-RED-service
+  ports:
+    - protocol: TCP
+      port: 1880
+      targetPort: 1880
+      name: node-RED
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: node-RED 
+spec:
+  host: mqtt.student297.rahtiapp.fi
+  to: 
+    kind: Service
+    name: node-RED-service
+  port:
+    targetPort: 1800
