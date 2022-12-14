@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: node-RED-pvc
+  name: node-red-pv-claim
 spec:
   storageClassName: "" 
-  accessModes: 
-    - ReadWriteOnce 
-  volumeName: node-RED-directory
+  accessModes:
+    - ReadWriteOnce
+  volumeName: node-red-directory
