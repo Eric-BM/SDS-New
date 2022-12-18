@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: node-red-pvc
+  name: mosquitto-pvc
 spec:
   resources:
     requests:
-      storage: "1Gi"
+      storage: "10Gi"
   accessModes:
     - ReadWriteOnce

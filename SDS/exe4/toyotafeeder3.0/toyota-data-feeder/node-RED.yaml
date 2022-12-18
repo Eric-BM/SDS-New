@@ -1,10 +1,12 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: node-red-deployment
 spec:
+  selector:
+    matchLabels:
+      app: node-red
   replicas: 1
-  type: LoadBalancer
   template:
     metadata:
       labels:
@@ -12,40 +14,34 @@ spec:
     spec:
       containers:
         - name: node-red
-          image: nodered/node-red:latest
-          ports:
-            - containerPort: 1880
-              protocol: TCP
+          image: nodered/node-red
           volumeMounts: 
             - name: node-red-directory
               mountPath: /data
+          resources: {}
       volumes:
         - name: node-red-directory
           persistentVolumeClaim:
-            claimName: node-red-pv-claim
+            claimName: node-red-pvc
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: node-red-service
-  labels:
-    app: node-red-service
-    kubernetes.io/name: "node-red-service"
 spec:
   selector:
-    app: node-red-service
+    app: node-red
   ports:
-    - protocol: TCP
+    - name: port
       port: 1880
-      targetPort: 1880
-      name: node-red
+  type: LoadBalancer
 ---
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: node-red 
 spec:
-  host: nodered.student297.rahtiapp.fi
+  host: nodered.xinyuanma.rahtiapp.fi
   to: 
     kind: Service
     name: node-red-service

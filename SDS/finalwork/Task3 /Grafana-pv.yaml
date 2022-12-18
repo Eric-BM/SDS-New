@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: node-red-pvc
+  name: grafana-pvc
 spec:
   resources:
     requests:
