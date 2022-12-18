@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-red-deployment
+spec:
+  selector:
+    matchLabels:
+      app: node-red
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: node-red
+    spec:
+      containers:
+        - name: node-red
+          image: nodered/node-red
+          volumeMounts: 
+            - name: node-red-directory
+              mountPath: /data
+          resources: {}
+      volumes:
+        - name: node-red-directory
+          persistentVolumeClaim:
+            claimName: node-red-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-red-service
+spec:
+  selector:
+    app: node-red
+  ports:
+    - name: port
+      port: 1880
+  type: LoadBalancer
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: node-red 
+spec:
+  host: nodered.xinyuanma.rahtiapp.fi
+  to: 
+    kind: Service
+    name: node-red-service
+  port:
+    targetPort: 1880

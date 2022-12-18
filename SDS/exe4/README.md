@@ -83,3 +83,28 @@ oc get pods (OR routes OR deployments OR etc..)
    CSC Rahti account: student297
 
 #### STEPS:
+1. Create two new yaml files with following definitions
+[node-RED](src/node-RED.yaml) and [PersistentVolumeClaim](src/PersistentVolumeClaim.yaml)
+
+2. Use “oc create” command to create the objects defined in your yaml files in Rahti
+![oc create](pic/oc%20c.png)
+3. Inspect your deployment with "oc get all" and “oc status”
+!["get all"](pic/get_all.png)
+!["oc status"](pic/oc_status.png)
+4. Use "oc get pod" to get node-RED pod name, should be something like nodered-75883903-hwk9y
+!["get pod"](pic/get_pod.png)
+5. Use "oc exec <podname> -i -t -- sh" (e.g. "oc exec nodered-75883903-hwk9y -i -t -- sh") to get access inside the container.
+!["oc exec"](pic/exec_sh.png)
+6. Once inside use “cd /data” to get into /data folder. Check with "ls"
+!["cd data"](pic/cd_data.png)
+7. Use “echo hello > hello.txt” to create hello.txt file with text hello. Check that file was created with “cat hello.txt”
+!["hello"](pic/hello.png)
+8. Exit pod with “exit” command. Destroy pod with “oc delete pod nodered-pod”. Use “oc replace –force -f “<yourYaml>.yaml””. Use “oc get pods” and wait until pod is ready. Repeat steps 3 and 4. Pod names should be different! Do not create a  new hello.txt file. Check that persistent volume works with "cat hello.txt"
+!["replace"](pic/delete_replace.png)
+!["check pvc"](pic/check_pvc.png)
+9. modefy json.file
+![json.file](pic/json.png)
+10. nodered web
+![nodered web](pic/nodered.png)
+11. update certs
+![certs](pic/certs.png)
