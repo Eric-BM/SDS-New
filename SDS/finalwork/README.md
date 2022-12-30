@@ -32,8 +32,13 @@ Instead of configMap use secrets to for ca.crt, server.crt and server.key
 ## Task 7
 Include liveness probe, readiness probe and initial delay for all deployments/deploymentConfigs
 ### screenshot:
+1. start MQTT, everything is fine
 ![task7_start](pic/ft7-1.png)
+2. modify an error path for livenessProbe
 ![task7_error1](pic/error.png)
+3. check the pod status
 ![task7_check1](pic/ft7-2.png)
+4. modify an error path for readinessProbe
 ![task7_error2](pic/error2.png)
+5. check the pod status
 ![task7_check2](pic/ft7-3.png)
