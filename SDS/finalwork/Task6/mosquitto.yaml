@@ -14,7 +14,7 @@ metadata:
   name: mosquito-deployment
 spec:
   replicas: 1
-  type: ClusterIP
+  type: LoadBalancer
   template:
     metadata:
       labels:
