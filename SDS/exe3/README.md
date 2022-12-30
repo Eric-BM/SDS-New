@@ -71,3 +71,5 @@ Reuse mosquitto.conf from exercise 2. You can use the variables in the mosquitto
 ![oc_exec](pic/oc_exec.png)
 7. Screenshot of "ls mosquitto/config/certs" and "cat mosquitto/config/mosquitto.conf"
 ![oc_ls_cat](pic/oc_ls_cat.png)
+8. Test connection to Rahti cloud
+![Test_connection](pic/cc.png)
