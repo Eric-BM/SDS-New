@@ -169,7 +169,7 @@ kind: Route
 metadata:
   name: prometheus
 spec:
-  host: ！！！！
+  host: prometheus.student297.rahtiapp.fi
   to: 
     kind: Service
     name: prometheus

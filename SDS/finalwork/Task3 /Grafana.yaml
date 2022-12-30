@@ -66,7 +66,7 @@ kind: Route
 metadata:
   name: grafana
 spec:
-  host: ！！！！
+  host: grafana.student297.rahtiapp.fi
   to: 
     kind: Service
     name: grafana
