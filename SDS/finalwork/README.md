@@ -13,6 +13,8 @@ Task 7 - 3pts
 2. create Prometheus yaml file  
 3. create persistent volumes for Grafana  
 4. create Grafana yaml file  
+### screenshot:
+![task3](pic/ft3-1.png)
 
 ## Task 4
 Persist MQTT data to a volume
