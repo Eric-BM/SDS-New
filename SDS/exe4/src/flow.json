@@ -11,7 +11,7 @@
         "type": "mqtt in",
         "z": "61e276be557acd2b",
         "name": "",
-        "topic": "xinyuanma/#",
+        "topic": "student297/#",
         "qos": "0",
         "datatype": "auto",
         "broker": "e1e1b92214b867ab",
@@ -79,7 +79,7 @@
         "rules": [
             {
                 "t": "eq",
-                "v": "<studentID>/toyota/SPEED",
+                "v": "student297/toyota/SPEED",
                 "vt": "str"
             }
         ],
@@ -99,7 +99,7 @@
         "id": "e1e1b92214b867ab",
         "type": "mqtt-broker",
         "name": "",
-        "broker": "mqtt.<StudentID>.rahtiapp.fi",
+        "broker": "mqtt.student297.rahtiapp.fi",
         "port": "443",
         "tls": "ef596ff55e99e15b",
         "clientid": "",

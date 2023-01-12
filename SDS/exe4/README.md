@@ -108,3 +108,9 @@ oc get pods (OR routes OR deployments OR etc..)
 ![nodered web](pic/nodered.png)
 11. update certs
 ![certs](pic/certs.png)
+12. publish the info
+![certs](pic/pub.png)
+13. subscribe it
+![certs](pic/sub.png)
+14. check it on the website
+![certs](pic/web.png)

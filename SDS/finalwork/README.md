@@ -45,8 +45,3 @@ Include liveness probe, readiness probe and initial delay for all deployments/de
 5. check the pod status
 ![task7_check2](pic/ft7-3.png)
 
-    
-## Course Experience:
-This course appears to be a bit challenging for me, but I'm glad I made it here.
-1. I believe this training is quite useful. It references prominent market situations, integrates extensive industry expertise, and employs the traditional and dependable Kubernetes for practical operation. This course helps students to get a head start on the programming environment and create a solid basis for future work.
-2. This training is really hands-on. It strives to help me comprehend and master some applications often used by software engineers, as well as expertise in related subjects. To completely grasp and apply these technologies successfully, you must take the time to assimilate the course material and practice.
