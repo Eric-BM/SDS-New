@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  f1demo2val:
+    image: docker-registry.rahti.csc.fi/xinyuan-ma/f1demo2val:1.0
+    environment:
+      - MQTT_URL = mosquitto
+      - MQTT_PORT = 8883
+      - CLIENT_ID = student297
+    networks:
+      - studnet297-net 
+
+  val2mqtt:
+    image: docker-registry.rahti.csc.fi/xinyuan-ma/val2mqtt:1.0
+    environment:
+      - MQTT_URL = mosquitto
+      - MQTT_PORT = 8883
+      - CLIENT_ID = student297
+    networks:
+      - studnet297-net 
+
+  kuksa-val:
+    image: ghcr.io/smaddis/kuksa-val:0.2.0
+    ports:
+     - "1883:1883"
+     - "8883:8883"
+    volumes:
+      - "./mosquitto.conf:/mosquitto/config/mosquitto.conf"
+      - "./certs:/mosquitto/config/certs"
+    networks:
+      - studnet297-net
+
+networks:
+  studnet297-net: 
+    name: studnet297-net
